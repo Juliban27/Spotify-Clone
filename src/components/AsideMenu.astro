@@ -1,0 +1,35 @@
+---
+import Library from "@/icons/Library.astro";
+import Search from "@/icons/Search.astro";
+import Order from "@/icons/Order.astro";
+import SideHeader from "./SideHeader.astro";
+import SideMenuCard from "./SideMenuCard.astro";
+import Button from "./Button.astro";
+import {playlists} from '@/lib/data'
+---
+
+<nav class="flex flex-col flex-1 gap-2">
+    <section class="flex flex-col">
+        <SideHeader/>
+        <div class="mx-4 my-2 flex flex-row gap-2 items-center align-middle">
+            <Button>
+                Playlists
+            </Button> 
+            <Button>
+                Artists
+            </Button> 
+            <Button>
+                Albums
+            </Button> 
+            <Button>
+                Podcasts & Shows
+            </Button> 
+        </div>
+    </section>
+    <ul>        
+        {
+            playlists.map(playlist => <SideMenuCard  playlist={playlist} />)
+        }
+    </ul>
+    
+</nav>

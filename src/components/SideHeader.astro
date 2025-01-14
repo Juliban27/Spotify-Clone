@@ -1,0 +1,21 @@
+---
+import LibraryIcon from "../icons/Library.astro"
+import ShowMore from "@/icons/ShowMore.astro"
+import Create from "@/icons/Create.astro"
+
+---
+
+<section class="pt-3 pr-4 pb-2 pl-4 flex flex-row gap-40">
+    <div class="flex flex-row gap-3 h-10 px-2 py-1 items-center p-1 font-semibold text-[#b3b3b3] fill-[#b3b3b3] text-base text-center flex-shrink-0 hover:text-white hover:fill-white transition duration-500">
+        <LibraryIcon classes=" size-6" />
+        Your Library
+    </div>
+    <div class="flex flex-row h-10 gap-2 px-2 py-1 items-center p-1 text-base content-end w-auto fill-[#b3b3b3]">
+        <div class="relative flex items-center justify-center size-8 rounded-full hover:bg-[#202020] transition-colors duration-300">
+            <Create classes="size-4 fill-current text-[#b3b3b3] hover:text-white" />
+        </div>
+        <div class="relative flex items-center justify-center size-8 rounded-full hover:bg-[#202020] transition-colors duration-300">
+            <ShowMore classes="size-4 fill-current text-[#b3b3b3] hover:fill-white" />
+        </div>
+    </div>
+</section>

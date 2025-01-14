@@ -1,11 +1,32 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Button from '@/components/Button.astro';
+import { playlists } from '@/lib/data';
+import PlayListItemCard from '@/components/PlayListItemCard.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+	<div id="playlist-container" class="relative transition duration-1000">
+		<div class="relative z-10 px-6 flex flex-col w-auto pt-8 pl-10">
+			<div class="flex flex-row gap-2">
+				<Button>
+					All
+				</Button>
+				<Button>
+					Music
+				</Button>
+				<Button>
+					Podcasts
+				</Button>
+			</div>
+			<div class="flex flex-wrap mt-3 gap-4">
+				{
+					playlists.map(playlist => <PlayListItemCard playlist={playlist} />)
+				}
+			</div>
+		</div>
+	</div>
 </Layout>
