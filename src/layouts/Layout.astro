@@ -1,6 +1,8 @@
 ---
 import { ViewTransitions } from 'astro:transitions'
 import AsideMenu from '../components/AsideMenu.astro'
+import {Player} from '@/components/Player.jsx'
+import Header from '../components/Header.astro'
 ---
 
 
@@ -17,8 +19,8 @@ import AsideMenu from '../components/AsideMenu.astro'
 	<body>
 		<div id="app" class="relative h-full p-2 gap-2">
 
-			<header class="[grid-area:header] bg-orange-500 flex-row flex min-h-[48px] ">
-				header
+			<header class="[grid-area:header] flex-row flex min-h-[48px] ">
+				<Header/>
 			</header>
 
 			<aside class="[grid-area:aside] flex-col flex overflow-y-auto rounded-lg bg-[#121212]">
@@ -29,8 +31,8 @@ import AsideMenu from '../components/AsideMenu.astro'
 				<slot />
 			</main>
 
-			<footer  class="[grid-area:player] min-h-[100px] bg-red-300">
-				player
+			<footer  class="[grid-area:player] ">
+				<Player client:load transition:name="media-player" transition:persist/>
 			</footer>
 		</div>
 	</body>

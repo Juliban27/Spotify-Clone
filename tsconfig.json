@@ -5,25 +5,24 @@
       "@/*": [
         "src/*"
       ],
-      "@/components/*": [
+      "@/components": [
         "src/components/*"
       ],
-      "@/icons/*": [
+      "@/hooks": [
+        "src/hooks/*"
+      ],
+      "@/icons": [
         "src/icons/*"
       ],
-      "@/lib/*": [
+      "@/lib": [
         "src/lib/*"
+      ],
+      "@/services": [
+        "src/services/*"
       ]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ]
+  "extends": "astro/tsconfigs/strict"
 }

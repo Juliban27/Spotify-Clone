@@ -1,0 +1,9 @@
+---
+const { classes = "" } = Astro.props;
+---
+<!-- h y w para modificar size del boton -->
+<div>
+    <button class={` rounded-full flex items-center justify-center p-2 ${classes}`}>
+        <slot />
+    </button>
+</div>
