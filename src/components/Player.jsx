@@ -1,7 +1,8 @@
 import { useRef, useEffect, useState } from "react"
 import { usePlayerStore } from "../store/playerStore"
 import { Slider } from "./Slider"
-export const Pause = () => (
+import { useCurrentMusic } from "../hooks/UseCurrentSong";
+export const Pause = ({className}) => (
     <svg
         role="img"
         aria-hidden="true"
@@ -11,7 +12,7 @@ export const Pause = () => (
         ></path></svg>
 )
 
-export const Play = () => (
+export const Play = ({className}) => (
 <svg
  role="img"
  aria-hidden="true"
@@ -77,12 +78,12 @@ const SongControl = ({audio}) => {
         const seconds = Math.floor(time % 60)
         const minutes = Math.floor(time / 60)
 
-        return `${minutes}:${seconds}`
+        return `${minutes}:${seconds.toString().padStart(2, '0')}`
     }
 
     return(
         <div className="flex items-center gap-x-2 text-xs text-[#b3b3b3] ">
-                <span className="">{currentTime}</span>
+                <span className="w-12 text-right">{formatTime(currentTime)}</span>
                 <Slider 
                 className="w-[626px]" 
                 min={0} 
@@ -93,7 +94,7 @@ const SongControl = ({audio}) => {
                 onValueChange={(value) => {
                     audio.current.currentTime = value
                     }}/>
-                <span>{duration}</span>
+                <span className="w-12">{ duration ? formatTime(duration) : null}</span>
         </div>
     )
 }
@@ -147,7 +148,7 @@ const VolumeControl = () => {
 export function Player () {
     const { currentMusic, isPlaying, setIsPlaying, volume} = usePlayerStore( state => state)
     const audioRef = useRef()
-
+    const {getNextSong} = useCurrentMusic(currentMusic)
 
     useEffect(() => {
         isPlaying
@@ -175,7 +176,7 @@ export function Player () {
 
 return (
     <div className="flex flex-row justify-between w-full px-2 z-50 py-4 text-white"> 
-        <div>
+        <div className="">
             <CurrentSong {...currentMusic.song}/>
         </div>
 

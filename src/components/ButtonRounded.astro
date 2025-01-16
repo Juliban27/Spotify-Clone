@@ -1,9 +1,13 @@
 ---
 const { classes = "" } = Astro.props;
+const { href = "" } = Astro.props;
+const { target = "" } = Astro.props;
 ---
 <!-- h y w para modificar size del boton -->
 <div>
-    <button class={` rounded-full flex items-center justify-center p-2 ${classes}`}>
-        <slot />
-    </button>
+    <a href={`${href}`} target={`${target}`} >
+        <button class={` rounded-full flex items-center justify-center ${classes}`} onclick="">
+            <slot />
+        </button>
+    </a>
 </div>

@@ -1,15 +1,37 @@
 ---
 import Spotify from "@/icons/Spotify.astro";
 import ButtonRounded from "./ButtonRounded.astro";
+import Home from "@/icons/Home.astro";
+import Search from "@/icons/Search.astro";
+import Browse from "@/icons/Browse.astro";
+import Notifications from "@/icons/Notifications.astro";
 ---
 
-<header>
-    <nav class="flex justify-between items-center p-4">
-        <ul class="list-none flex gap-4">
+<header class="p-4 w-full">
+    <nav >
+        <ul class="list-none flex flex-row items-center justify-between">
             <li><a href="/"><Spotify classes="fill-white"/></a></li>
+            <li class="flex flex-row gap-4">
+                <div class="flex flex-row gap-2">
+                    <ButtonRounded classes="bg-slate-300/20 p-2" href="/">
+                        <Home classes="fill-white size-6"/>
+                    </ButtonRounded>
+                    <div class="w-[474px] rounded-full bg-slate-300/20 flex items-center gap-2 text-[#b3b3b3] hover:bg-slate-300/30  hover:border-white  hover:border-[1px]  transition duration-500 font-normal">
+                        <Search classes="fill-white size-6 ml-4" />
+                        <input type="text" class=" rounded-full bg-transparent flex items-center hover:border-opacity-0 h-[35px] w-[322px]  " placeholder=" What do you want to play?"/>
+                        <div class="flex items-center gap-2 flex-row ml-9">
+                            <p class="text-xl">|</p>
+                            <Browse classes="fill-white size-6 mr-4"/>
+                        </div>
+                    </div>
+                </div>
+            </li>
             <li>
-                <div>
-                    
+                <div class="flex flex-row gap-4 items-center">
+                    <Notifications classes="fill-white size-4"/>
+                    <ButtonRounded classes="bg-slate-300/20 p-1" href="https://www.linkedin.com/in/julian-eduardo-romero-mart%C3%ADnez-57886b1a0/" target="_blank">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQGM2GMdHMFEmA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1709657220212?e=1742428800&v=beta&t=PWJJiRHzkJAjCRQL4xLKkJ5DcnNI26YyMWneSb8TEpc" alt="Julian's profile picture" class="rounded-full size-8"/>
+                    </ButtonRounded>
                 </div>
             </li>
         </ul>
